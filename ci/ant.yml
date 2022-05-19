@@ -21,5 +21,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
+   - name: Creates a JavaDoc
+      run:  ant -noinput -buildfile build.xml javadoc
+    - name: Upload javadoc
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        name: javadoc
+        path: javadoc
